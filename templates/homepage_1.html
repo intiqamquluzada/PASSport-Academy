@@ -443,61 +443,32 @@ PASSport Academy, tələbələrimizə hədəfləri üzrə uyğun yaşama və iş
         <div class="col-lg-6 show-up wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">
           <div class="blog-post">
             <div class="thumb">
-              <a href="#"><img src="{% static 'assets/images/blog-post-01.jpg' %}" alt=""></a>
+              <a href="#"><img src="{{ last_blog.photo.url }}" style="width: 636px; height: 550px; " alt=""></a>
             </div>
             <div class="down-content">
-              <span class="category">SEO Analysis</span>
-              <span class="date">03 August 2021</span>
-              <a href="#"><h4>Lorem Ipsum Dolor Sit Amet, Consectetur Adelore
-                Eiusmod Tempor Incididunt</h4></a>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doers itii eiumod deis tempor incididunt ut labore.</p>
-              <span class="author"><img src="{% static 'assets/images/author-post.jpg' %}" alt="">By: Andrea Mentuzi</span>
-              <div class="border-first-button"><a href="#">Discover More</a></div>
+              <span class="date">{{ last_blog.created_at }}</span>
+              <a href="#"><h4>{{ last_blog.head }}</h4></a>
+              <p>{{ last_blog.main_part }}</p>
             </div>
           </div>
         </div>
         <div class="col-lg-6 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">
           <div class="blog-posts">
             <div class="row">
-              <div class="col-lg-12">
+{% for blog in blogs %}
+              <div class="col-lg-12" style="margin-bottom: 20px;">
                 <div class="post-item">
                   <div class="thumb">
-                    <a href="#"><img src="{% static 'assets/images/blog-post-02.jpg' %}" alt=""></a>
+                    <a href="#"><img src="{{ blog.photo.url }}" style="height: 230px; width: 230px;" alt=""></a>
                   </div>
                   <div class="right-content">
-                    <span class="category">SEO Analysis</span>
-                    <span class="date">24 September 2021</span>
-                    <a href="#"><h4>Lorem Ipsum Dolor Sit Amei Eiusmod Tempor</h4></a>
-                    <p>Lorem ipsum dolor sit amet, cocteturi adipiscing eliterski.</p>
+                    <span class="date">{{ blog.created_at }}</span>
+                    <a href="#"><h4>{{ blog.head }}</h4></a>
+                    <p>{{ blog.main_part }}</p>
                   </div>
                 </div>
               </div>
-              <div class="col-lg-12">
-                <div class="post-item">
-                  <div class="thumb">
-                    <a href="#"><img src="{% static 'assets/images/blog-post-03.jpg' %}" alt=""></a>
-                  </div>
-                  <div class="right-content">
-                    <span class="category">SEO Analysis</span>
-                    <span class="date">24 September 2021</span>
-                    <a href="#"><h4>Lorem Ipsum Dolor Sit Amei Eiusmod Tempor</h4></a>
-                    <p>Lorem ipsum dolor sit amet, cocteturi adipiscing eliterski.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-12">
-                <div class="post-item last-post-item">
-                  <div class="thumb">
-                    <a href="#"><img src="{% static 'assets/images/blog-post-04.jpg' %}" alt=""></a>
-                  </div>
-                  <div class="right-content">
-                    <span class="category">SEO Analysis</span>
-                    <span class="date">24 September 2021</span>
-                    <a href="#"><h4>Lorem Ipsum Dolor Sit Amei Eiusmod Tempor</h4></a>
-                    <p>Lorem ipsum dolor sit amet, cocteturi adipiscing eliterski.</p>
-                  </div>
-                </div>
-              </div>
+{% endfor %}
             </div>
           </div>
         </div>
@@ -510,8 +481,8 @@ PASSport Academy, tələbələrimizə hədəfləri üzrə uyğun yaşama və iş
       <div class="row">
         <div class="col-lg-6 offset-lg-3">
           <div class="section-heading wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s">
-            <h6>Contact Us</h6>
-            <h4>Get In Touch With Us <em>Now</em></h4>
+            <h6>Əlaqə</h6>
+            <h4>Konsultasiya üçün doldur! </h4>
             <div class="line-dec"></div>
           </div>
         </div>
@@ -525,8 +496,7 @@ PASSport Academy, tələbələrimizə hədəfləri üzrə uyğun yaşama və iş
               </div>
               <div class="col-lg-5">
                 <div id="map">
-                  <iframe src="https://maps.google.com/maps?q=Av.+L%C3%BAcio+Costa,+Rio+de+Janeiro+-+RJ,+Brazil&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="636px" frameborder="0" style="border:0" allowfullscreen></iframe>
-                </div>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3039.74460127036!2d49.83782267655196!3d40.37018705846995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307db1658a2357%3A0xfffc0fecc08425b0!2sPASSport%20Academy!5e0!3m2!1saz!2saz!4v1688726014819!5m2!1saz!2saz" width="100%" height="984px;" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>                </div>
               </div>
               <div class="col-lg-7">
                 <div class="fill-form">
@@ -535,7 +505,7 @@ PASSport Academy, tələbələrimizə hədəfləri üzrə uyğun yaşama və iş
                       <div class="info-post">
                         <div class="icon">
                           <img src="assets/images/phone-icon.png" alt="">
-                          <a href="#">010-020-0340</a>
+                          <a href="#">+99450-800-98-77 <br><br></a>
                         </div>
                       </div>
                     </div>
@@ -543,7 +513,8 @@ PASSport Academy, tələbələrimizə hədəfləri üzrə uyğun yaşama və iş
                       <div class="info-post">
                         <div class="icon">
                           <img src="assets/images/email-icon.png" alt="">
-                          <a href="#">our@email.com</a>
+                          <a href="#">passport.academy8.5<br>@gmail.com</a>
+
                         </div>
                       </div>
                     </div>
@@ -551,30 +522,46 @@ PASSport Academy, tələbələrimizə hədəfləri üzrə uyğun yaşama və iş
                       <div class="info-post">
                         <div class="icon">
                           <img src="assets/images/location-icon.png" alt="">
-                          <a href="#">123 Rio de Janeiro</a>
+                          <a href="https://wa.me/+994558071837">+994 55 807 18 37 (WhatsApp)</a>
                         </div>
                       </div>
                     </div>
                     <div class="col-lg-6">
-                      <fieldset>
+
                         <input type="name" name="name" id="name" placeholder="Name" autocomplete="on" required>
-                      </fieldset>
-                      <fieldset>
+                      <input type="name" name="name" id="name" placeholder="surname" autocomplete="on" required>
+
+
                         <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email" required="">
-                      </fieldset>
-                      <fieldset>
-                        <input type="subject" name="subject" id="subject" placeholder="Subject" autocomplete="on">
-                      </fieldset>
+
+
+                        <input type="subject" name="subject" id="subject" placeholder="number" autocomplete="on">
+                      <input type="datetime-local" name="" id="">
+                      <input type="number" placeholder="gpa">
+                       <input type="text" name="" placeholder="maraqli olke" id="">
+                      <input type="text" name="" placeholder="maraqli teqaud proqramlari" id="">
+
                     </div>
                     <div class="col-lg-6">
-                      <fieldset>
-                        <textarea name="message" type="text" class="form-control" id="message" placeholder="Message" required=""></textarea>  
-                      </fieldset>
+
+                        <textarea name="message" type="text" class="form-control" id="message" placeholder="Dil sertifikatlari" required=""></textarea>
+                        <br> <br><select class="form-control" name="cars" id="cars">
+  <option value="volvo">Volvo</option>
+  <option value="saab">Saab</option>
+  <option value="mercedes">Mercedes</option>
+</select>
+                      <br><select class="form-control" name="cars" id="cars">
+  <option value="volvo">Volvo</option>
+  <option value="saab">Saab</option>
+  <option value="mercedes">Mercedes</option>
+</select>
+
+                      <textarea placeholder="is tecrubesi" ></textarea>
                     </div>
                     <div class="col-lg-12">
-                      <fieldset>
-                        <button type="submit" id="form-submit" class="main-button ">Send Message Now</button>
-                      </fieldset>
+
+                        <button type="submit" id="form-submit" class="main-button ">Görüş təyin et</button>
+
                     </div>
                   </div>
                 </div>
