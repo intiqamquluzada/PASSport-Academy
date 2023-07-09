@@ -50,20 +50,20 @@ class Blog(DateMixin, SlugMixin):
 
 
 class Consultation(DateMixin, SlugMixin):
-    name = models.CharField(max_length=100)
-    surname = models.CharField(max_length=100)
-    email = models.EmailField()
-    phone_number = models.CharField(max_length=100)
-    meet_date = models.DateField()
+    name = models.CharField(max_length=100, null=True, blank=True)
+    surname = models.CharField(max_length=100, null=True, blank=True)
+    email = models.EmailField(null=True, blank=True)
+    phone_number = models.CharField(max_length=100, null=True, blank=True)
+    meet_date = models.DateTimeField(null=True, blank=True)
 
     gpa = models.FloatField()
-    language_certificate = models.TextField()
-    interest_country = models.CharField(max_length=255)
-    interested_scholarship_programs = models.CharField(max_length=255)
-    work_experience = models.CharField(max_length=255)
-    is_met = models.BooleanField(default=False)
-    meet_type = models.CharField(choices=MEET_TYPE, default="Offline", max_length=20)
-    education_degree = models.CharField(choices=EDUCATION_DEGREE, default="Bakalavr", max_length=100)
+    language_certificate = models.TextField(null=True, blank=True)
+    interest_country = models.CharField(max_length=255, null=True, blank=True)
+    interested_scholarship_programs = models.CharField(max_length=255, null=True, blank=True)
+    work_experience = models.CharField(max_length=255, null=True, blank=True)
+    is_met = models.BooleanField(default=False, null=True, blank=True)
+    meet_type = models.CharField(choices=MEET_TYPE, default="Offline", max_length=20, null=True, blank=True)
+    education_degree = models.CharField(choices=EDUCATION_DEGREE, default="Bakalavr", max_length=100, null=True, blank=True)
 
     def __str__(self):
         return self.name + " " + self.surname + " --> " + self.interest_country

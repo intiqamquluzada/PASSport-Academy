@@ -364,18 +364,25 @@ PASSport Academy, tələbələrimizə hədəfləri üzrə uyğun yaşama və iş
           </div>
         </div>
         <div class="col-lg-8 offset-lg-2  wow fadeIn" data-wow-duration="1s" data-wow-delay="0.8s">
-          <form id="search" action="#" method="GET">
+          <form id="search" action="#" method="post">
+            {% csrf_token %}
             <div class="row">
-              <div class="col-lg-4 col-sm-4">
-                <fieldset>
-                  <input type="web" name="web" class="website" placeholder="Your website URL..." autocomplete="on" required>
-                </fieldset>
-              </div>
-              <div class="col-lg-4 col-sm-4">
-                <fieldset>
-                  <input type="address" name="address" class="email" placeholder="Email Address..." autocomplete="on" required>
-                </fieldset>
-              </div>
+
+{% for field_2 in form_2 %}
+    {% if forloop.counter0|divisibleby:2 %}<div class="col-lg-4 col-sm-4">
+        {{ field_2 }}
+      </div>
+    {% else %}
+      <div class="col-lg-4 col-sm-4">
+
+       {{ field_2 }}
+      </div>
+    {% endif %}
+  {% endfor %}
+
+
+
+
               <div class="col-lg-4 col-sm-4">
                 <fieldset>
                   <button type="submit" class="main-button">Göndər</button>
@@ -488,6 +495,7 @@ PASSport Academy, tələbələrimizə hədəfləri üzrə uyğun yaşama və iş
         </div>
         <div class="col-lg-12 wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.25s">
           <form id="contact" action="" method="post">
+            {% csrf_token %}
             <div class="row">
               <div class="col-lg-12">
                 <div class="contact-dec">
@@ -565,9 +573,7 @@ PASSport Academy, tələbələrimizə hədəfləri üzrə uyğun yaşama və iş
     </div>
   </footer>
 
-  {% for field in form %}
- {{ field.label }}) {{ field }}
-  {% endfor %}
+
 
   <!-- Scripts -->
   <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
