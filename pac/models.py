@@ -55,14 +55,15 @@ class Consultation(DateMixin, SlugMixin):
     email = models.EmailField()
     phone_number = models.CharField(max_length=100)
     meet_date = models.DateField()
-    meet_type = models.CharField(choices=MEET_TYPE, default="Offline", max_length=20)
-    education_degree = models.CharField(choices=EDUCATION_DEGREE, default="Bakalavr", max_length=100)
+
     gpa = models.FloatField()
     language_certificate = models.TextField()
     interest_country = models.CharField(max_length=255)
     interested_scholarship_programs = models.CharField(max_length=255)
     work_experience = models.CharField(max_length=255)
     is_met = models.BooleanField(default=False)
+    meet_type = models.CharField(choices=MEET_TYPE, default="Offline", max_length=20)
+    education_degree = models.CharField(choices=EDUCATION_DEGREE, default="Bakalavr", max_length=100)
 
     def __str__(self):
         return self.name + " " + self.surname + " --> " + self.interest_country

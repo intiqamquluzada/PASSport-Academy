@@ -526,38 +526,20 @@ PASSport Academy, tələbələrimizə hədəfləri üzrə uyğun yaşama və iş
                         </div>
                       </div>
                     </div>
-                    <div class="col-lg-6">
 
-                        <input type="name" name="name" id="name" placeholder="Name" autocomplete="on" required>
-                      <input type="name" name="name" id="name" placeholder="surname" autocomplete="on" required>
+  {% for field in form %}
+    {% if forloop.counter0|divisibleby:2 %}<div class="col-lg-6">{{field.label}}
+        {{ field }}
+      </div>
+    {% else %}
+      <div class="col-lg-6">
+{{field.label}}
+       {{ field }}
+      </div>
+    {% endif %}
+  {% endfor %}
 
 
-                        <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email" required="">
-
-
-                        <input type="subject" name="subject" id="subject" placeholder="number" autocomplete="on">
-                      <input type="datetime-local" name="" id="">
-                      <input type="number" placeholder="gpa">
-                       <input type="text" name="" placeholder="maraqli olke" id="">
-                      <input type="text" name="" placeholder="maraqli teqaud proqramlari" id="">
-
-                    </div>
-                    <div class="col-lg-6">
-
-                        <textarea name="message" type="text" class="form-control" id="message" placeholder="Dil sertifikatlari" required=""></textarea>
-                        <br> <br><select class="form-control" name="cars" id="cars">
-  <option value="volvo">Volvo</option>
-  <option value="saab">Saab</option>
-  <option value="mercedes">Mercedes</option>
-</select>
-                      <br><select class="form-control" name="cars" id="cars">
-  <option value="volvo">Volvo</option>
-  <option value="saab">Saab</option>
-  <option value="mercedes">Mercedes</option>
-</select>
-
-                      <textarea placeholder="is tecrubesi" ></textarea>
-                    </div>
                     <div class="col-lg-12">
 
                         <button type="submit" id="form-submit" class="main-button ">Görüş təyin et</button>
@@ -583,6 +565,9 @@ PASSport Academy, tələbələrimizə hədəfləri üzrə uyğun yaşama və iş
     </div>
   </footer>
 
+  {% for field in form %}
+ {{ field.label }}) {{ field }}
+  {% endfor %}
 
   <!-- Scripts -->
   <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>

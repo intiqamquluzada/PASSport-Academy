@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Students, Blog
+from .forms import ConsultantForm
 
 
 def home_view(request):
@@ -8,11 +9,14 @@ def home_view(request):
 
     last_blog = Blog.objects.last()
     blogs = Blog.objects.all().reverse()[1:]
+
+    form = ConsultantForm()
     context = {
         "students": students,
         "scholarship_students_percent": scholarship_students_percent,
         "last_blog": last_blog,
         "blogs": blogs,
+        "form": form,
 
 
     }
